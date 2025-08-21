@@ -2,12 +2,16 @@ package org.example;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class App {
 
-    // 1. Find the number of elements in a list of strings.
+     //1. Find the number of elements in a list of strings.
     public static long findNumberOfElements(List<String> strList) {
         return strList.stream().count();
+    }
+    private static List<String> convertStringsToUppercase(List<String> strList) {
+        return strList.stream().map(String::toUpperCase).collect(Collectors.toList());
     }
 
     public static void main(String[] args) {
@@ -27,6 +31,8 @@ public class App {
                 Arrays.asList(new Person("Tom", "City X"), new Person("Jane", "City Y"));
 
         System.out.println("#1 Elements count: " + findNumberOfElements(strList));
-
+        System.out.println("#2 To uppercase: " + convertStringsToUppercase(strList));
     }
+
+
 }
