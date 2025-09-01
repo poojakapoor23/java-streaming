@@ -11,8 +11,18 @@ public class App {
         return strList.stream().count();
     }
     private static List<String> convertStringsToUppercase(List<String> strList) {
-        return strList.stream().map(String::toUpperCase).collect(Collectors.toList());
+        return strList.stream().map(String::toUpperCase).collect(Collectors.toList());}
+        public static List<String> filterStringsStartingWithA(List<String> strList) {
+            return strList.stream().filter(el -> el.startsWith("A")).collect(Collectors.toList());}
+            public static List<Integer>  uniqueIntegers(List<Integer> intsList) {
+               return  intsList.stream().distinct().collect(Collectors.toList());}
+            public static int  sumOfIntegers(List<Integer> intsList) {
+             return  intsList.stream().mapToInt(Integer::intValue).sum();}
+    public static int minOfIntegers(List<Integer> intsList) {
+        return intsList.stream().mapToInt(Integer::intValue).min().orElse(Integer.MIN_VALUE);
     }
+
+
 
     public static void main(String[] args) {
         System.out.println("== Java Stream API Methods Demo ==");
@@ -32,7 +42,13 @@ public class App {
 
         System.out.println("#1 Elements count: " + findNumberOfElements(strList));
         System.out.println("#2 To uppercase: " + convertStringsToUppercase(strList));
+        System.out.println("#3 Starts with A: " + filterStringsStartingWithA(moreStrs));
+        System.out.println("#4  UniqueIntegers"  + uniqueIntegers(intsList));
+        System.out.println("#4  Sum of Integers"  + sumOfIntegers(intsList));
+        System.out.println("#6 Min int: " + minOfIntegers(intsList));
+
+    }
     }
 
 
-}
+
