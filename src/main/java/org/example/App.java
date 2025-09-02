@@ -21,6 +21,9 @@ public class App {
     public static int minOfIntegers(List<Integer> intsList) {
         return intsList.stream().mapToInt(Integer::intValue).min().orElse(Integer.MIN_VALUE);
     }
+    public static int maxOfIntegers(List<Integer> intsList) {
+        return intsList.stream().mapToInt(Integer::intValue).max().orElse(Integer.MAX_VALUE);
+    }
 
 
 
@@ -46,6 +49,7 @@ public class App {
         System.out.println("#4  UniqueIntegers"  + uniqueIntegers(intsList));
         System.out.println("#4  Sum of Integers"  + sumOfIntegers(intsList));
         System.out.println("#6 Min int: " + minOfIntegers(intsList));
+        System.out.println("#7 Max int: " + maxOfIntegers(intsList));
 
     }
     }
