@@ -6,23 +6,48 @@ import java.util.stream.Collectors;
 
 public class App {
 
-     //1. Find the number of elements in a list of strings.
+    //1. Find the number of elements in a list of strings.
     public static long findNumberOfElements(List<String> strList) {
         return strList.stream().count();
     }
+
     private static List<String> convertStringsToUppercase(List<String> strList) {
-        return strList.stream().map(String::toUpperCase).collect(Collectors.toList());}
-        public static List<String> filterStringsStartingWithA(List<String> strList) {
-            return strList.stream().filter(el -> el.startsWith("A")).collect(Collectors.toList());}
-            public static List<Integer>  uniqueIntegers(List<Integer> intsList) {
-               return  intsList.stream().distinct().collect(Collectors.toList());}
-            public static int  sumOfIntegers(List<Integer> intsList) {
-             return  intsList.stream().mapToInt(Integer::intValue).sum();}
+        return strList.stream().map(String::toUpperCase).collect(Collectors.toList());
+    }
+
+    public static List<String> filterStringsStartingWithA(List<String> strList) {
+        return strList.stream().filter(el -> el.startsWith("A")).collect(Collectors.toList());
+    }
+
+    public static List<Integer> uniqueIntegers(List<Integer> intsList) {
+        return intsList.stream().distinct().collect(Collectors.toList());
+    }
+
+    public static int sumOfIntegers(List<Integer> intsList) {
+        return intsList.stream().mapToInt(Integer::intValue).sum();
+    }
+
     public static int minOfIntegers(List<Integer> intsList) {
         return intsList.stream().mapToInt(Integer::intValue).min().orElse(Integer.MIN_VALUE);
     }
+
     public static int maxOfIntegers(List<Integer> intsList) {
         return intsList.stream().mapToInt(Integer::intValue).max().orElse(Integer.MAX_VALUE);
+    }
+
+    public static String concatenateStringsWithComma(List<String> strList) {
+        return strList.stream().collect(Collectors.joining(", "));
+    }
+
+    public static int getFirstIntegerOfList(List<Integer> intList) {
+       return intList.stream().mapToInt(Integer::intValue).findFirst().orElse(0);}
+    public static String getLastElementOfString(List<String> strList){
+        if(strList == null || strList.isEmpty()) {
+            return "";
+        }
+        else
+       return strList.get(strList.size() - 1);
+
     }
 
 
@@ -50,6 +75,9 @@ public class App {
         System.out.println("#4  Sum of Integers"  + sumOfIntegers(intsList));
         System.out.println("#6 Min int: " + minOfIntegers(intsList));
         System.out.println("#7 Max int: " + maxOfIntegers(intsList));
+        System.out.println("#8 concatenate String "+concatenateStringsWithComma(moreStrs));
+        System.out.println("#9 Get first integer of List  " +getFirstIntegerOfList(intsList));
+        System.out.println("#10 Get last element of String " +getLastElementOfString(strList));
 
     }
     }
