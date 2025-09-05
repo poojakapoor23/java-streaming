@@ -49,6 +49,18 @@ public class App {
        return strList.get(strList.size() - 1);
 
     }
+    public static List<Integer> listOfSquares(List<Integer> intsList) {
+        return intsList.stream().map(i -> i * i).collect(Collectors.toList());
+    }
+    public static List<Integer> filterEvenNumbers(List<Integer> intsList) {
+        return intsList.stream().filter(n -> n % 2 == 0).collect(Collectors.toList());
+    }
+    public static List<String> namesOfUsersOlderThan18(List<User> users) {
+        return users.stream()
+                .filter(u -> u.getAge() > 18)
+                .map(User::getName)
+                .collect(Collectors.toList());
+    }
 
 
 
@@ -78,6 +90,10 @@ public class App {
         System.out.println("#8 concatenate String "+concatenateStringsWithComma(moreStrs));
         System.out.println("#9 Get first integer of List  " +getFirstIntegerOfList(intsList));
         System.out.println("#10 Get last element of String " +getLastElementOfString(strList));
+        System.out.println("#11 List of squares: " + listOfSquares(intsList));
+
+        System.out.println("#12 Even numbers: " + filterEvenNumbers(intsList));
+        System.out.println("#13 Users > 18: " + namesOfUsersOlderThan18(users));
 
     }
     }
