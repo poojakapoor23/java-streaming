@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -62,6 +63,13 @@ public class App {
                 .collect(Collectors.toList());
     }
 
+    public static List <String> stringSortedbyLength (List<String> strList){
+      return  strList.stream().sorted(Comparator.comparing(String :: length)).collect(Collectors.toList());
+    }
+
+    public static boolean  containsStringWithJava (List <String> strList){
+       return strList.stream().anyMatch(str ->str.contains("Java"));
+    }
 
 
     public static void main(String[] args) {
@@ -94,6 +102,8 @@ public class App {
 
         System.out.println("#12 Even numbers: " + filterEvenNumbers(intsList));
         System.out.println("#13 Users > 18: " + namesOfUsersOlderThan18(users));
+        System.out.println(" # 14 Sorted  String" + stringSortedbyLength(strList));
+        System.out.println(" # 15 Contains String with java" + containsStringWithJava(strList));
 
     }
     }
